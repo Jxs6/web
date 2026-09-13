@@ -1,0 +1,109 @@
+/* 全局基础样式：统一盒模型并设置页面背景 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    min-height: 100vh;
+    margin: 0;
+    padding: 24px;
+    place-items: center;
+    color: #24313d;
+    background: #edf2f5;
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+/* 名片主体：居中卡片、12px 圆角与柔和阴影 */
+.business-card {
+    width: min(100%, 360px);
+    padding: 40px 32px 32px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid rgba(36, 49, 61, 0.06);
+    border-radius: 12px;
+    box-shadow: 0 14px 35px rgba(36, 49, 61, 0.12);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+/* 鼠标悬停时让卡片轻微上浮 */
+.business-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 42px rgba(36, 49, 61, 0.16);
+}
+
+/* 圆形头像 */
+.avatar {
+    display: block;
+    width: 112px;
+    height: 112px;
+    margin: 0 auto 22px;
+    object-fit: cover;
+    border: 4px solid #e5f0ef;
+    border-radius: 50%;
+}
+
+h1 {
+    margin: 0;
+    color: #1d2a35;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.job-title {
+    margin: 8px 0 28px;
+    color: #71808b;
+    font-size: 15px;
+}
+
+/* 联系方式使用轻量分隔线，方便快速阅读 */
+.contact-list {
+    display: grid;
+    gap: 12px;
+    text-align: left;
+}
+
+.contact-list a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+    color: #3e5667;
+    border-bottom: 1px solid #edf1f3;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 180ms ease;
+}
+
+.contact-list a:last-child {
+    border-bottom: 0;
+}
+
+.contact-list a:hover {
+    color: #2b8c83;
+}
+
+.contact-label {
+    flex: 0 0 32px;
+    color: #98a6ae;
+    font-size: 13px;
+}
+
+/* 小屏设备上允许联系方式自然换行 */
+@media (max-width: 420px) {
+    body {
+        padding: 16px;
+    }
+
+    .business-card {
+        padding: 32px 24px 24px;
+    }
+
+    .contact-list a {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+}
